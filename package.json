@@ -1,0 +1,17 @@
+{
+  "name": "cordova-plugin-bluetoothBle",
+  "version": "0.0.1",
+  "description": "bluetoothBle",
+  "cordova": {
+    "id": "cordova-plugin-bluetoothBle",
+    "platforms": [
+      "android"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-bluetoothBle" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>cordova-plugin-bluetoothBle</name>
+    <js-module name="bluetoothBle" src="www/cordova-plugin-bluetooth.js">
+        <clobbers target="bluetoothBle" />
+    </js-module>
+
+    <platform name = "android">
+
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="BluetoothBle">
+                <param name="android-package" value="com.thomas.bluetooth.BluetoothBle" />
+            </feature>
+
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.BLUETOOTH" />
+            <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+        </config-file>
+
+        <source-file src="src/android/src/com/thomas/bluetooth/BluetoothBle.java" target-dir="src/com/thomas/bluetooth"/>
+    </platform>
+    <!-- ios -->
+     <platform name="ios">
+         <config-file target="config.xml" parent="/*">
+             <feature name="BluetoothBle">
+                 <param name="ios-package" value="CDVBluetoothBle" />
+             </feature>
+         </config-file>
+
+         
+         <header-file src="src/ios/CDVBluetoothBle.h" />
+         <source-file src="src/ios/CDVBluetoothBle.m" />
+        
+         <framework src="CoreBluetooth.framework" />
+        
+
+        <preference name="BLUETOOTH_PERIPHERAL_USAGE_DESCRIPTION" default=" " />
+         <config-file target="*-Info.plist" parent="NSBluetoothPeripheralUsageDescription">
+             <string>$BLUETOOTH_PERIPHERAL_USAGE_DESCRIPTION</string>
+         </config-file>
+         
+     </platform>
+</plugin>
